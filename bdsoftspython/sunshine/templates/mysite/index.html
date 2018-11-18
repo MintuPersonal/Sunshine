@@ -1,0 +1,41 @@
+{% extends 'mysite/base.html' %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <p >
+            <h1 style="color:red"> Here is API Calling Data show </h1>
+            <h3 style="color:red"> You can provide First Name 'John' and Last Name 'Doe' Then click Tell me Chuck Norris Joke, You can see
+                jone doe joke in right hand site thank you.</h3>
+            </p>
+            <div class="col-sm-6" style="margin-top: 100px">
+                <form class="form-inline" action="{% url 'home' %} " method="post">
+                    {% csrf_token %}
+
+                    <label class="sr-only" for="inlineFormInputName2">First Name</label>
+                    <input name="firstname" type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2"
+                           placeholder="First Name">
+
+                    <label class="sr-only" for="inlineFormInputName2">Last Name</label>
+                    <input name="lastname" type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2"
+                           placeholder="Last Name">
+
+                    <button type="submit" class="btn btn-primary mb-2">Tell me Chuck Norris Joke</button>
+                </form>
+            </div>
+            <div class="col-sm-6" style="margin-top: 100px">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Chuck Norris</h5>
+                        <p class="card-text">{{ joker }}</p>
+                        <a href="{% url 'portfolio' %}" class="card-link">Check my portfolio</a>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+    </div>
+{% endblock %}
